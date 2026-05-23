@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmácia</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
 <header>
     <h1>Farmácia</h1>
-
     <nav>
-        <a href="index.php">Home</a>
+        <a href="index.php" class="active">Home</a>
         <a href="cadastro.php">Cadastro</a>
         <a href="editar.php">Editar</a>
         <a href="excluir.php">Excluir</a>
@@ -37,13 +34,12 @@
         ?>
 
         <div class="card">
-            <h2><?= $row['nome'] ?></h2>
-
-            <p><strong>ID:</strong> <?= $row['id'] ?></p>
-            <p><strong>Preço:</strong> R$ <?= $row['preco'] ?></p>
-            <p><strong>Estoque:</strong> <?= $row['estoque'] ?></p>
-            <p><strong>Fabricante:</strong> <?= $row['fabricante'] ?></p>
-            <p><strong>Dose:</strong> <?= $row['dose'] ?></p>
+            <span class="badge-id">ID <?= $row['id'] ?></span>
+            <h2><?= htmlspecialchars($row['nome']) ?></h2>
+            <p><strong>Preço</strong> R$ <?= number_format($row['preco'], 2, ',', '.') ?></p>
+            <p><strong>Estoque</strong> <?= $row['estoque'] ?> un.</p>
+            <p><strong>Fabricante</strong> <?= htmlspecialchars($row['fabricante']) ?></p>
+            <p><strong>Dose</strong> <?= htmlspecialchars($row['dose']) ?></p>
         </div>
 
         <?php } ?>
