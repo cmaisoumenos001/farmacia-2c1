@@ -74,6 +74,9 @@
 
             <p><strong>ID:</strong> <?= $row['id'] ?></p>
             <p><strong>Preço:</strong> R$ <?= $row['preco'] ?></p>
+            <p><strong>Estoque:</strong> R$ <?= $row['estoque'] ?></p>
+            <p><strong>Fabricante:</strong> R$ <?= $row['fabricante'] ?></p>
+            <p><strong>Dose:</strong> R$ <?= $row['dose'] ?></p>
         </div>
 
         <?php } ?>
