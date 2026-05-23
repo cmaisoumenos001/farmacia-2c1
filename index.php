@@ -40,7 +40,7 @@
     }
     ?>
 </div>
-
+<?php require('includes/footer.php'); ?>
 </body>
 
 </body>

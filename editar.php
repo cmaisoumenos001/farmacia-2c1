@@ -83,6 +83,7 @@ if (isset($_POST['salvar'])) {
 </form>
 
 </div>
+<?php require('includes/footer.php'); ?>
 
 </body>
 </html>

@@ -71,5 +71,7 @@ $id = $pdo->lastInsertId();
 }
 ?>
 <br>
+<?php require('includes/footer.php'); ?>
+
 </body>
 </html>
