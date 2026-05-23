@@ -1,20 +1,12 @@
 <?php
-$servidor = "127.0.0.1";
-$banco = "farmacia";
+$dsn = "mysql:host=localhost;dbname=estoque;charset=utf8";
 $usuario = "root";
 $senha = "";
 
+//conexão
 try {
-    $pdo = new PDO(
-        "mysql:host=$servidor;dbname=$banco;charset=utf8mb4",
-        $usuario,
-        $senha
-    );
-    // Configura o PDO para lançar exceções em caso de erros
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $erro) {
-    echo "A conexão não pôde ser realizada: " . $erro->getMessage();
-    exit;
+    $pdo = new PDO($dsn, $usuario, $senha);
+} catch (PDOException $e)  {
+    die("Erro ao conectar: " . $e->getMessage());
 }
 ?>

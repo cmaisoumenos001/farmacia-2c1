@@ -1,43 +1,75 @@
-<?php
-require_once 'config/conexao.php';
-require_once 'includes/header.php';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <link rel="stylesheet" href="css/style.css">
 
-$mensagem = "";
+</head>
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nome = $_POST['nome'];
-    $fabricante = $_POST['fabricante'];
-    $preco = $_POST['preco'];
-    $estoque = $_POST['estoque'];
+<body>
+    <div class="sidebar">
+    <h2>Menu</h2>
+    <a href="index.php">Home</a>
+    <a href="cadastro.php">Cadastro</a>
+    <a href="excluir.php">Excluir</a>
+    <a href="editar.php">Editar</a>
+</div>
 
-    try {
-        $sql = "INSERT INTO produtos (nome, fabricante, preco, estoque) VALUES (:nome, :fabricante, :preco, :estoque)";
-        $stmt = $pdo->prepare($sql);
 
-        $stmt->execute([
-            ':nome'       => $nome,
-            ':fabricante' => $fabricante,
-            ':preco'      => $preco,
-            ':estoque'    => $estoque
-        ]);
 
-        $mensagem = "<p style='color:green; text-align:center;'>Produto inserido com sucesso!</p>";
-    } catch (PDOException $erro) {
-        $mensagem = "<p style='color:red; text-align:center;'>Erro ao inserir: " . $erro->getMessage() . "</p>";
-    }
-}
-?>
+<form method="post">
+    <label>Nome do Produto</label>
+    <input type="text" name="nome" required>
+    <br><br>
+    <label>Preço</label>
+    <input type="text" name="preco" required>
+    <br><br>
+    <label>Fabricante</label>
+    <input type="text" name="fabricante" required>
+    <br><br>
+    <label>estoque</label>
+    <input type="text" name="estoque" required>
+    <br><br>
+    <label>dose do Produto</label>
+    <input type="text" name="dose" required>
+    <br><br>
+    <button type="submit">enviar</button>
 
-<h2>Cadastrar Novo Produto</h2>
-
-<?= $mensagem ?>
-
-<form method="POST" action="cadastro.php">
-    <input type="text" name="nome" placeholder="Nome do Produto" required>
-    <input type="text" name="fabricante" placeholder="Fabricante" required>
-    <input type="number" step="0.01" name="preco" placeholder="Preço (Ex: 15.30)" required>
-    <input type="number" name="estoque" placeholder="Quantidade em Estoque" required>
-    <button type="submit">Cadastrar</button>
 </form>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php
+require ('<config/conexao.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+$nome = $_POST['nome'];
+$preco = $_POST['preco'];
+$fabricante = $_POST['fabricante'];
+$estoque = $_POST['estoque'];
+$dose = $_POST['dose'];
+
+
+
+
+$sql = "INSERT INTO produtos (nome, preco, fabricante, estoque, dose) VALUES (:nome, :preco, :fabricante, :estoque, :dose)";
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute([
+    ':nome' => $nome,
+    ':preco' => $preco,
+    ':fabricante' => $fabricante,
+    ':estoque' => $estoque,
+    ':dose' => $dose
+]);
+
+$id = $pdo->lastInsertId();
+
+
+ echo $id . " ". $nome . " " . $preco . " " . $fabricante . " " . $estoque; 
+}
+?>
+<br>
+</body>
+</html>
