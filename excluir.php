@@ -52,13 +52,12 @@
                     <input type="number" name="id" placeholder="Ex: 1" required>
                 </div>
 
-                <button type="submit">Excluir Produto</button>
+                <button type="submit" class="btn-dark">Excluir Produto</>
 
             </form>
         </div>
     </div>
 
-    <!-- Listagem de Produtos -->
     <div class="section-title">
         <h2>Todos os Produtos</h2>
     </div>

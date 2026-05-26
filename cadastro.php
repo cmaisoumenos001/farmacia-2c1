@@ -83,7 +83,7 @@
                     <input type="text" name="dose" placeholder="Ex: 500mg" required>
                 </div>
 
-                <button type="submit">Cadastrar Produto</button>
+                <button type="submit" class="btn-dark">Cadastrar Produto</button>
 
             </form>
         </div>

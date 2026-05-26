@@ -117,7 +117,6 @@
         </div>
     </div>
 
-    <!-- Listagem de Produtos -->
     <div class="section-title">
         <h2>Todos os Produtos</h2>
     </div>
